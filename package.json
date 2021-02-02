@@ -1,6 +1,6 @@
 {
-  "name": "appengine-hello-world",
-  "description": "Simple Hello World Node.js sample for Google App Engine Standard Environment.",
+  "name": "drugstore_io",
+  "description": "Simple NodeJs App for Drugstore.io",
   "version": "0.0.2",
   "private": true,
   "license": "Apache-2.0",
@@ -17,7 +17,10 @@
     "test": "mocha --exit test/*.test.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.4.2"
   },
   "devDependencies": {
     "mocha": "^8.1.3",
