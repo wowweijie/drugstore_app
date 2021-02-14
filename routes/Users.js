@@ -4,6 +4,7 @@ const db = require('../database/db');
 
 
 users.post('/new_usr', (req,res) => {
+    console.log('creating new user...');
     var ref = db.ref('user_info/'+req.query.uid);
     let userData = req.body
     console.log(userData);

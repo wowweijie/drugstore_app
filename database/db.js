@@ -1,7 +1,8 @@
 var admin = require('firebase-admin');
 
+var serviceAccount = require("../credential/drugstore_firebase_secret.json");
 admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
+    credential: admin.credential.cert(serviceAccount),
     databaseURL: 'https://drugstoreio-default-rtdb.firebaseio.com/'
   });
 
