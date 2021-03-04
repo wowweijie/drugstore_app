@@ -2,8 +2,14 @@ const express = require('express')
 const users = express.Router();
 const db = require('../database/db');
 
+users.get("/", (req,res) => {
+  var targetUser = db.ref('user_info/' + req.query.uid);
+  targetUser.once("value", function(snapshot){
+    res.end(JSON.stringify(snapshot.val()));
+  })
+})
 
-users.post('/new_usr', (req,res) => {
+users.post('/', (req,res) => {
     console.log('creating new user...');
     var ref = db.ref('user_info/'+req.query.uid);
     let userData = req.body
@@ -30,5 +36,14 @@ users.post('/new_usr', (req,res) => {
         res.json({status: 500, message: 'User not saved'})
     });
 });
+
+users.put('/', (req, res) => {
+  let userToUpdate = db.ref('user_info/'+req.query.uid);
+  userToUpdate.once("value", function(snapshot){
+    newData = snapshot.val();
+    userToUpdate.update(req.body);
+  })
+  res.status(200).json(req.body);
+})
 
 module.exports = users;
