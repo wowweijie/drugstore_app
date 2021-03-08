@@ -20,7 +20,9 @@ app.get('/', (req, res) => {
 
 // Initialize routes
 var Users =  require('./routes/Users');
+var Diagnoses =  require('./routes/Diagnoses');
 app.use('/users', Users);
+app.use('/diagnoses', Diagnoses);
 
 // Start the server
 const PORT = process.env.PORT || 8080;
