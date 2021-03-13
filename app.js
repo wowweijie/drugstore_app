@@ -11,7 +11,7 @@ app.use(cors({ origin: true }));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 
 app.get('/', (req, res) => {
@@ -19,10 +19,12 @@ app.get('/', (req, res) => {
 });
 
 // Initialize routes
-var Users =  require('./routes/Users');
-var Diagnoses =  require('./routes/Diagnoses');
+var Users = require('./routes/Users');
+var Diagnoses = require('./routes/Diagnoses');
+var Prescriptions = require('./routes/Prescriptions');
 app.use('/users', Users);
 app.use('/diagnoses', Diagnoses);
+app.use('/prescriptions', Prescriptions);
 
 // Start the server
 const PORT = process.env.PORT || 8080;
