@@ -13,7 +13,9 @@ prescriptions.get("/", (req, res) => {
                 prescriptionsArray.push(prescriptionsDB[i]);
             }
         }
-        res.json(prescriptionsArray);
+        res.json(prescriptionsArray.sort(function (a, b) {
+            return new Date(b.date) - new Date(a.date);
+        }));
     })
 })
 
