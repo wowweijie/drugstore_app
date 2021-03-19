@@ -22,9 +22,11 @@ app.get('/', (req, res) => {
 var Users = require('./routes/Users');
 var Diagnoses = require('./routes/Diagnoses');
 var Prescriptions = require('./routes/Prescriptions');
+var Notifications = require('./routes/Notifications');
 app.use('/users', Users);
 app.use('/diagnoses', Diagnoses);
 app.use('/prescriptions', Prescriptions);
+app.use('/notifs', Notifications);
 
 // Start the server
 const PORT = process.env.PORT || 8080;
