@@ -71,7 +71,7 @@ notifs.get("/", (req, res) => {
                 notifArray.push(notifDB[i]);
             }
         }
-        res.status(200).json(notifArray);
+        res.status(200).json(notifArray.reverse());
     })
 })
 
