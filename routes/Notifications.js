@@ -33,7 +33,7 @@ notifs.post('/', (req, res) => {
         var message = {
             token: req.query.rToken,
             notification: {
-                title: "Reminder",
+                title: data.title,
                 body: data.content
             },
             android: {
